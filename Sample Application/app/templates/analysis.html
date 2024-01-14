@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Main Page</title>
+   <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="static/analysis.css">
+</head>
+<body>
+    <h1>Application Summary Page</h1>
+    <div class="page-container">
+        <div class="list-container">
+            <div class="list">
+              <div class="navbar">
+                <a type="button" href="/logout" class="navbar-item">Logout</a>
+                <a type="button" href="/list" class="navbar-item">Go Back</a>
+              </div>
+                <table>
+                    <!-- Table Headers -->
+                    <tr>
+                      <th class="item">Company Name</th>
+                      <th class="item">Quota</th>
+                      <th class="item">GPA Threshold</th>
+                    </tr>
+                  
+                    <!-- Dynamically creating table rows for each company -->
+                    {% for company in companies %}
+                    <tr>
+                      <td class="item">{{ company.cname }}</td>
+                      <td class="item">{{ company.quota }}</td>
+                      <td class="item">{{ company.gpa_threshold }}</td>
+                    </tr>
+                    {% endfor %}
+                  </table>
+            </div>     
+            <div class="list">
+                <table>
+                    <!-- Table Headers -->
+                    <tr>
+                      <th class="item">Max-Gpa-Threshold</th>
+                      <th class="item">Min-Gpa-Threshold</th>
+                    </tr>
+                  
+                    <!-- Dynamically creating table rows for each company -->
+                    {% for company in min_max_gpa_companies %}
+                    <tr>
+                      <td class="item">{{ company.max_gpa_threshold }}</td>
+                      <td class="item">{{ company.min_gpa_threshold }}</td>
+                    </tr>
+                    {% endfor %}
+                  </table>
+            </div>    
+            <div class="list">
+                <table>
+                    <!-- Table Headers -->
+                    <tr>
+                      <th class="item">City</th>
+                      <th class="item">Application Count</th>
+                    </tr>
+                  
+                    <!-- Dynamically creating table rows for each company -->
+                    {% for company in company_by_city %}
+                    <tr>
+                      <td class="item">{{ company.city }}</td>
+                      <td class="item">{{ company.application_count }}</td>
+                    </tr>
+                    {% endfor %}
+                  </table>
+            </div>
+            
+            <div class="list">
+                <table>
+                    <!-- Table Headers -->
+                    <tr>
+                      <th class="item">Company-with-max-quota</th>
+                      <th class="item">Company-with-min-quota</th>
+                    </tr>
+                  
+                    <!-- Dynamically creating table rows for each company -->
+                    {% for company in quotas %}
+                    <tr>
+                      <td class="item">{{ company.company_with_max_quota }}</td>
+                      <td class="item">{{ company.company_with_min_quota }}</td>
+                    </tr>
+                    {% endfor %}
+                  </table>
+            </div>  
+        </div>
+    </div>
+       
+    
+</body>
+</html>

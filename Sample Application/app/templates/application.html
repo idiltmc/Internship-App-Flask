@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Main Page</title>
+   <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="static/list.css">
+</head>
+<body>
+    <h1>New Application</h1>
+    <div class="page-container">
+      <div class="navbar">
+        <a type="button" href="/logout" class="navbar-item">Logout</a>
+        <a type="button" href="/analysis" class="navbar-item">Analysis</a>
+        <a type="button" href="/list" class="navbar-item">Main Page</a>
+        </div>
+        <div class="list-container">
+            <div class="list">
+                <table>
+                    <!-- Headers -->
+                    <tr>
+                      <th class="item">Company ID</th>
+                      <th class="item">Company Name</th>
+                      <th class="item">Actions</th> <!-- For the cancel link -->
+                    </tr>
+                  
+                    <!-- -->
+                    {% for company in companies %}
+                    <tr>
+                      <td class="item">{{ company.cid }}</td>
+                      <td class="item">{{ company.cname }}</td>
+                      <td class="item"><a type="button"  href="/apply/{{company.cid}}">Submit</a></td>
+                    </tr>
+                    {% endfor %}
+                  </table>
+            </div>  
+            <div class="search-items">
+              <form action="{{ url_for('apply_list') }}" method="get">
+                <input type="text" name="search_result" placeholder="Search by company id" required>
+                <button type="submit" class="search-btn">Search</button>
+              </form>
+            </div>        
+        </div>
+    </div>
+       
+    
+</body>
+</html>

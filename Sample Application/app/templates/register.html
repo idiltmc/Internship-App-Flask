@@ -1,23 +1,79 @@
-<form action="{{ url_for('register') }}" method="post">
-	{% if message is defined and message %}
-		<div class="alert alert-warning">{{ message }}</div>
-	{% endif %}
-	<div class="form-group">
-		<label for="username">Username:</label>
-		<input type="text" class="form-control" id="username" name="username" placeholder="Enter name">
-	</div>
-	<div class="form-group">
-		<label for="email">Email:</label>
-		<input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
-	</div>
-	<div class="form-group">
-		<label for="pwd">Password:</label>
-		<input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
-	</div>  
+<html>
+<head>
+	<title>Registration Page</title>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<link rel="stylesheet" href="static/register.css">
 
-	<button type="submit" class="btn btn-primary">Register</button>		
-</form>
+</head>
+<body>
+	<div class="page-container">
+		<div class="reg-container">
+			<div class="reg-form">
+				<form  action="{{ url_for('register') }}" method="post">
+					<div class="form-group-cont">
+						<h2>Register</h2>
+						<div class="form-group">
+							<label for="sname">Name:</label>
+							<input type="text" class="form-control" id="sname" name="sname" placeholder="Enter name">
+						</div>
+						<div class="form-group">
+							<label for="sid">Student ID:</label>
+							<input type="password" class="form-control" id="sid" name="sid" placeholder="Enter Student ID" maxlength="6">
+						</div>
+						<div class="form-group">
+							<label for="bdate">Birth Date:</label>
+							<input type="date" class="form-control" id="bdate" name="bdate">
+						</div>
+						<div class="form-group">
+							<label for="dept">Department:</label>
+							<input type="text" class="form-control" id="dept" name="dept" placeholder="Enter Department" maxlength="2">
+						</div>
+						<div class="form-group">
+							<label for="syear">School Year:</label>
+							<select class="form-control" id="syear" name="syear">
+								<option value="">Select Year</option>
+								<option value="freshman">Freshman</option>
+								<option value="sophomore">Sophomore</option>
+								<option value="junior">Junior</option>
+								<option value="senior">Senior</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="gpa">GPA:</label>
+							<input type="number" step="0.01" min="0" max="4" class="form-control" id="gpa" name="gpa" placeholder="Enter GPA">
+						</div>
+						
+						<div class="button-reg">
+							<button type="submit" class="btn btn-primary">Register</button>
+						</div>
+					</div>				
+					</form>
+					<div class="button-login">
+						<form action="{{ url_for('login') }}" method="get">
+							<button type="submit" class="btn btn-primary">Login</button>
+						</form>
+					</div>
+					<script type="text/javascript">
+						window.onload = function() {
+							// Check if the message is not empty
+							var message = "{{ message }}";
+							if (message.length > 0) {
+								alert(message); // This is a simple JavaScript alert.
+								// If you want a custom popup, you'd trigger your popup logic here.
+							}
+						};
+					</script>
+					
+			</div>
+			
+		</div>
 
-<form action="{{ url_for('login') }}" method="get">
-<button class="btn btn-primary">Login</button>
-</form>
+	</div>
+	
+</body>
+</html>
+
+
+
+
+    

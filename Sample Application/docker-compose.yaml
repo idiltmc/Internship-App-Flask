@@ -4,6 +4,8 @@ services:
     image: cs353hw4app
     ports:
       - "5000:5000"
+    depends_on:
+      - db
     volumes:
       - ./app:/app
     working_dir: /app
@@ -17,3 +19,4 @@ services:
       - "3307:3306"
     volumes:
       - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
+

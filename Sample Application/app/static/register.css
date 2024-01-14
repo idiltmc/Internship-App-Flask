@@ -1,0 +1,63 @@
+.page-container{
+    position: relative;
+    height: 100vh; 
+}
+.button-reg{
+  position: absolute;
+  left: 49%;
+}
+.button-login{
+  position: absolute;
+  left: 49%;
+  top: 85%;
+}
+
+.btn-primary{
+  background: #7743DB;
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 10px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 15px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  margin: 20px 10px 10px 0px;
+  text-align: center;
+  width: 120px; 
+  height: 40px; 
+}
+h2{
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background: #3D30A2;
+  text-decoration: none;
+}
+
+.reg-container{
+    display: flex;
+    justify-content: center; 
+}
+.form-group-cont{
+    width: 100%;
+    border-radius: 10px;
+    background-color: #C3ACD0;
+    padding-right: 15%;
+    padding-left: 15%;
+    padding-top: 8%;
+    padding-bottom: 50%;
+    height: fit-content;
+}
+.form-control{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+body{
+    background-color: #F7EFE5;
+}
